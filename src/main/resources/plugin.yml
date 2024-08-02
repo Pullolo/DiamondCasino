@@ -1,0 +1,9 @@
+name: DiamondCasino
+version: '0.1'
+main: net.pullolo.diamondCasino.DiamondCasino
+api-version: '1.21'
+authors: [ Pullolo ]
+commands:
+  casino:
+    description: Opens the casino gui
+    usage: /<command>
