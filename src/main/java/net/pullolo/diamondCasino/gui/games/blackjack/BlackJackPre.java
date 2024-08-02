@@ -2,6 +2,7 @@ package net.pullolo.diamondCasino.gui.games.blackjack;
 
 import mc.obliviate.inventory.Gui;
 import mc.obliviate.inventory.Icon;
+import net.kyori.adventure.text.Component;
 import net.pullolo.diamondCasino.gui.Exchange;
 import net.pullolo.diamondCasino.gui.base.BaseBackGui;
 import org.bukkit.Material;
@@ -29,15 +30,15 @@ public class BlackJackPre extends BaseBackGui {
         addItem(4, createPlayerStats());
         addItem(18, createBackItem());
 
-        addItem(10, bet(Material.GOLD_BLOCK, true, 100));
-        addItem(11, bet(Material.GOLD_INGOT, true, 10));
-        addItem(12, bet(Material.GOLD_NUGGET, true, 1));
+        addItem(16, bet(Material.GOLD_BLOCK, true, 100));
+        addItem(15, bet(Material.GOLD_INGOT, true, 10));
+        addItem(14, bet(Material.GOLD_NUGGET, true, 1));
 
         addItem(13, betDisplay());
 
-        addItem(14, bet(Material.IRON_NUGGET, false, 1));
-        addItem(15, bet(Material.IRON_INGOT, false, 10));
-        addItem(16, bet(Material.IRON_BLOCK, false, 100));
+        addItem(12, bet(Material.IRON_NUGGET, false, 1));
+        addItem(11, bet(Material.IRON_INGOT, false, 10));
+        addItem(10, bet(Material.IRON_BLOCK, false, 100));
 
         addItem(22, play());
     }
@@ -45,10 +46,14 @@ public class BlackJackPre extends BaseBackGui {
     private Icon play(){
         Icon icon = new Icon(Material.COAL_BLOCK);
         icon.setName(translate(
-                "&7> PLAY <"
+                "&7> &cPLAY &7<"
         ));
 
         icon.onClick(click -> {
+            if (currentBet<=0){
+                owner.sendMessage(translate("&cBet has to be greater than 0!"));
+                return;
+            }
             //todo lines below
             //takeMoney = true;
             this.getInventory().close();
