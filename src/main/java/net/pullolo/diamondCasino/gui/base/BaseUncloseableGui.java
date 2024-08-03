@@ -1,5 +1,6 @@
 package net.pullolo.diamondCasino.gui.base;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -14,16 +15,12 @@ public class BaseUncloseableGui extends BaseGui{
 
     @Override
     public void onClose(InventoryCloseEvent event) {
+        super.onClose(event);
         if (event.getReason().equals(InventoryCloseEvent.Reason.PLAYER) ||
                 event.getReason().equals(InventoryCloseEvent.Reason.TELEPORT) ||
                 event.getReason().equals(InventoryCloseEvent.Reason.DEATH)
         ){
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    preventClose();
-                }
-            }.runTaskLater(casinoPlugin, 1);
+            Bukkit.getScheduler().runTask(casinoPlugin, this::open);
         }
     }
 

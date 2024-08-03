@@ -54,10 +54,10 @@ public class BlackJackPre extends BaseBackGui {
                 owner.sendMessage(translate("&cBet has to be greater than 0!"));
                 return;
             }
-            //todo lines below
-            //takeMoney = true;
+
+            takeMoney = true;
             this.getInventory().close();
-            //new Blackjack.open();
+            new BlackJack(owner, currentBet).open();
         });
 
         return icon;

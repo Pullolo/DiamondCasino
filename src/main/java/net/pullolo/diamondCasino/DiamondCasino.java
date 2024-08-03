@@ -6,6 +6,7 @@ import net.pullolo.diamondCasino.commands.Casino;
 import net.pullolo.diamondCasino.data.Database;
 import net.pullolo.diamondCasino.data.PlayerData;
 import net.pullolo.diamondCasino.events.DataEventsHandler;
+import net.pullolo.diamondCasino.gui.games.PlayingCard;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
@@ -27,6 +28,7 @@ public final class DiamondCasino extends JavaPlugin {
         casinoPlugin = this;
         saveDefaultConfig();
 
+        PlayingCard.initCards();
         logInfo("Initializing GUI library...");
         try {
             inventoryAPI = new InventoryAPI(this);

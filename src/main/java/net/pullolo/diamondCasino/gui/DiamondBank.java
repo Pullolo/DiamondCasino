@@ -20,8 +20,9 @@ public class DiamondBank extends BaseBackGui {
         fillGui(createFiller());
 
         addItem(4, createPlayerStats());
-        addItem(11, createDeposit());
-        addItem(15, createWithdrawal());
+        addItem(11, createWithdrawal());
+        addItem(15, createDeposit());
+
 
         addItem(18, createBackItem());
     }
