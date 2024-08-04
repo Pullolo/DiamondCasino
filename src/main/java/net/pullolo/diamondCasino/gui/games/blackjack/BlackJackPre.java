@@ -27,7 +27,7 @@ public class BlackJackPre extends BaseBackGui {
         addItem(4, createPlayerStats());
         addItem(18, createBackItem());
 
-        addItem(17, bet(Material.GOLD_BLOCK, true, 1000));
+        if (getPlayerData(player).getDiamonds()>=1000) addItem(17, bet(Material.GOLD_BLOCK, true, 1000));
         addItem(16, bet(Material.GOLD_BLOCK, true, 100));
         addItem(15, bet(Material.GOLD_INGOT, true, 10));
         addItem(14, bet(Material.GOLD_NUGGET, true, 1));
@@ -37,7 +37,7 @@ public class BlackJackPre extends BaseBackGui {
         addItem(12, bet(Material.IRON_NUGGET, false, 1));
         addItem(11, bet(Material.IRON_INGOT, false, 10));
         addItem(10, bet(Material.IRON_BLOCK, false, 100));
-        addItem(9, bet(Material.IRON_BLOCK, false, 1000));
+        if (getPlayerData(player).getDiamonds()>=1000) addItem(9, bet(Material.IRON_BLOCK, false, 1000));
 
         addItem(22, play());
     }
