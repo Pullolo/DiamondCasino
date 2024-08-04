@@ -184,10 +184,12 @@ public class BlackJack extends BaseUncloseableGui {
             return;
         }
 
-        if (p > 21) {
-            dealerWin(); // Player busts
+        if (p > 21 && d > 21) {
+            draw(); // Both bust
         } else if (d > 21) {
             playerWin(); // Dealer busts
+        } else if (p > 21){
+            dealerWin(); // Player busts
         }
     }
 

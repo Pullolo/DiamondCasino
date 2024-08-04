@@ -2,15 +2,12 @@ package net.pullolo.diamondCasino.gui.games.blackjack;
 
 import mc.obliviate.inventory.Gui;
 import mc.obliviate.inventory.Icon;
-import net.kyori.adventure.text.Component;
-import net.pullolo.diamondCasino.gui.Exchange;
 import net.pullolo.diamondCasino.gui.base.BaseBackGui;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import static net.pullolo.diamondCasino.data.PlayerData.getPlayerData;
@@ -30,6 +27,7 @@ public class BlackJackPre extends BaseBackGui {
         addItem(4, createPlayerStats());
         addItem(18, createBackItem());
 
+        addItem(17, bet(Material.GOLD_BLOCK, true, 1000));
         addItem(16, bet(Material.GOLD_BLOCK, true, 100));
         addItem(15, bet(Material.GOLD_INGOT, true, 10));
         addItem(14, bet(Material.GOLD_NUGGET, true, 1));
@@ -39,6 +37,7 @@ public class BlackJackPre extends BaseBackGui {
         addItem(12, bet(Material.IRON_NUGGET, false, 1));
         addItem(11, bet(Material.IRON_INGOT, false, 10));
         addItem(10, bet(Material.IRON_BLOCK, false, 100));
+        addItem(9, bet(Material.IRON_BLOCK, false, 1000));
 
         addItem(22, play());
     }
