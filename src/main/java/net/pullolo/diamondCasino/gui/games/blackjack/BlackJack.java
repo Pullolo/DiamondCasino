@@ -1,6 +1,7 @@
 package net.pullolo.diamondCasino.gui.games.blackjack;
 
 import mc.obliviate.inventory.Icon;
+import net.pullolo.diamondCasino.gui.MainCasinoHall;
 import net.pullolo.diamondCasino.gui.base.BaseUncloseableGui;
 import net.pullolo.diamondCasino.gui.games.PlayingCard;
 import org.bukkit.Material;
@@ -114,6 +115,7 @@ public class BlackJack extends BaseUncloseableGui {
                 getPlayerData(owner).setDiamonds(getPlayerData(owner).getDiamonds() + (won ? bet*2 : bet));
             }
             owner.playSound(owner.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 2);
+            new MainCasinoHall(owner).open();
         });
 
         return icon;
