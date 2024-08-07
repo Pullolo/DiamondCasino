@@ -64,6 +64,9 @@ public class Exchange extends BaseBackGui {
                 if (i==null) continue;
                 if (i.hasItemMeta()) continue;
                 if (i.getType().equals(Material.DIAMOND)) {
+                    if (i.getAmount()<amount) {
+                        continue;
+                    }
                     i.setAmount(i.getAmount() - amount);
                     getMoney = true;
                     break;
