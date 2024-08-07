@@ -59,7 +59,18 @@ public class Exchange extends BaseBackGui {
 
     private boolean deposit(int amount){
         if (owner.getInventory().contains(Material.DIAMOND, amount)){
-            owner.getInventory().removeItem(new ItemStack(Material.DIAMOND, amount));
+            boolean getMoney = false;
+            for (ItemStack i : player.getInventory()) {
+                if (i==null) continue;
+                if (i.hasItemMeta()) continue;
+                if (i.getType().equals(Material.DIAMOND)) {
+                    i.setAmount(i.getAmount() - amount);
+                    getMoney = true;
+                    break;
+                }
+            }
+
+            if (!getMoney) return false;
 
             getPlayerData(owner).setDiamonds(getPlayerData(owner).getDiamonds()+amount);
             addItem(4, createPlayerStats());
