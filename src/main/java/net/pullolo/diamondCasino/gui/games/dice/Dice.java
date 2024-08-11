@@ -22,8 +22,8 @@ public class Dice extends BaseUncloseableGui {
     private boolean lost;
     private boolean won;
 
-    private int dice1 = getRandomNumber();
-    private int dice2 = getRandomNumber();
+    private int dice1;
+    private int dice2;
 
     public Dice(@NotNull Player player, int bet) {
         super(player, "g-2", "Game Of Dice", 3);
@@ -31,6 +31,22 @@ public class Dice extends BaseUncloseableGui {
         this.turn = 1;
         this.lost = false;
         this.won = false;
+        initDice();
+    }
+
+    private void initDice(){
+        if (r.nextBoolean()){
+            dice1=getRandomNumber();
+            dice2=getRandomNumber();
+        } else {
+            if (r.nextBoolean()){
+                dice1=getRandomNumber();
+                dice2=7-dice1;
+            } else {
+                dice2=getRandomNumber();
+                dice1=7-dice2;
+            }
+        }
     }
 
     @Override
