@@ -5,6 +5,7 @@ import mc.obliviate.inventory.Icon;
 import net.pullolo.diamondCasino.gui.base.BaseBackGui;
 import net.pullolo.diamondCasino.gui.base.BaseGui;
 import net.pullolo.diamondCasino.gui.games.blackjack.BlackJackPre;
+import net.pullolo.diamondCasino.gui.games.dice.DicePre;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -26,7 +27,8 @@ public class GamesMenu extends BaseBackGui {
 
         addItem(4, createPlayerStats());
 
-        addItem(13, createGame("Black Jack", getBlackJackDescription(), Material.COAL_BLOCK, new BlackJackPre(owner, this)));
+        addItem(11, createGame("Black Jack", getBlackJackDescription(), Material.COAL_BLOCK, new BlackJackPre(owner, this)));
+        addItem(15, createGame("Dice", getDiceDescription(), Material.HEAVY_CORE, new DicePre(owner, this)));
 
         addItem(18, createBackItem());
     }
@@ -56,6 +58,17 @@ public class GamesMenu extends BaseBackGui {
         ));
         lore.add(translate(
                 "&7the dealer, up to but not exceeding 21."
+        ));
+        return lore;
+    }
+
+    private ArrayList<String> getDiceDescription(){
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add(translate(
+                "&7Dice game whose object is to guess"
+        ));
+        lore.add(translate(
+                "&7if the next roll is higher or lower."
         ));
         return lore;
     }
