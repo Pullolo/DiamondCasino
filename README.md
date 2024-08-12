@@ -1,10 +1,10 @@
 # Diamond Casino - Diamond Gambling Plugin
-This plugins adds a variety of casino games to minecraft such as BlackJack or Dice. Diamonds are used as a currency in the casino, you can deposit and withdraw them through the bank.
+This plugin adds a variety of casino games to minecraft such as BlackJack or Dice. Diamonds are used as a currency in the casino, you can deposit and withdraw them through the bank.
 
 ## Features
 - Diamond Bank (Deposit and Withdraw Diamonds)
 - Black Jack (Classic game where you try to get as close to 21 without overshooting)
-- Dice (Dice can roll beetween 2 and 12, your task is to guess if the next roll is gonna be higher or lower)
+- Dice (Dice can roll between 2 and 12, your task is to guess if the next roll is going to be higher or lower)
 
 ## Commands
 ```/casino``` to enter the casino gui.
