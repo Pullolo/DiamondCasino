@@ -40,7 +40,7 @@ public class PlayingCard {
         }
     }
 
-    private final int value;
+    private int value;
     private final String symbol;
     private final String icon;
     private final boolean red;
@@ -69,5 +69,9 @@ public class PlayingCard {
 
     public int getValue() {
         return value;
+    }
+
+    public void setValue(int value){
+        this.value = value;
     }
 }
