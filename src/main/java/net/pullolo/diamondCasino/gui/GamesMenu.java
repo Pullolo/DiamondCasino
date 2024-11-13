@@ -6,6 +6,7 @@ import net.pullolo.diamondCasino.gui.base.BaseBackGui;
 import net.pullolo.diamondCasino.gui.base.BaseGui;
 import net.pullolo.diamondCasino.gui.games.blackjack.BlackJackPre;
 import net.pullolo.diamondCasino.gui.games.dice.DicePre;
+import net.pullolo.diamondCasino.gui.games.riskClimb.RiskClimbPre;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -28,6 +29,7 @@ public class GamesMenu extends BaseBackGui {
         addItem(4, createPlayerStats());
 
         addItem(11, createGame("Black Jack", getBlackJackDescription(), Material.COAL_BLOCK, new BlackJackPre(owner, this)));
+        addItem(13, createGame("Risk Climb", getRiskClimbDescription(), Material.LIME_DYE, new RiskClimbPre(owner, this)));
         addItem(15, createGame("Dice", getDiceDescription(), Material.HEAVY_CORE, new DicePre(owner, this)));
 
         addItem(18, createBackItem());
@@ -69,6 +71,20 @@ public class GamesMenu extends BaseBackGui {
         ));
         lore.add(translate(
                 "&7if the next roll is higher or lower."
+        ));
+        return lore;
+    }
+
+    private ArrayList<String> getRiskClimbDescription(){
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add(translate(
+                "&7The money multiplier will rise until"
+        ));
+        lore.add(translate(
+                "&7randomly dropping to 0, beware and cash"
+        ));
+        lore.add(translate(
+                "&7out before it happens."
         ));
         return lore;
     }
