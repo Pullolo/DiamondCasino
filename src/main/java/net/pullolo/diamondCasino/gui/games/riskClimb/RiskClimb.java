@@ -72,6 +72,9 @@ public class RiskClimb extends BaseUncloseableGui {
     public void onOpen(InventoryOpenEvent event) {
         fillGui(createFiller());
         updateUi();
+        if (won || lost){
+            createEndScreen();
+        }
     }
 
     public void updateUi(){
