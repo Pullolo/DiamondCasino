@@ -35,7 +35,7 @@ public class PlayingCard {
 
         for (int a = 0; a<4; a++){
             for (int i = 0; i<13; i++){
-                allCards.add(new PlayingCard(i+2, symbols[a], icons[i], a%2==1));
+                allCards.add(new PlayingCard(icons[i].equals("A") ? 11 : Math.min(i+2, 10), symbols[a], icons[i], a%2==1));
             }
         }
     }
