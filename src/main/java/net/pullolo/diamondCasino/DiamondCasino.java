@@ -6,12 +6,16 @@ import net.pullolo.diamondCasino.commands.Casino;
 import net.pullolo.diamondCasino.data.Database;
 import net.pullolo.diamondCasino.data.PlayerData;
 import net.pullolo.diamondCasino.events.DataEventsHandler;
+import net.pullolo.diamondCasino.events.PlayerEventsHandler;
 import net.pullolo.diamondCasino.gui.games.PlayingCard;
+import net.pullolo.diamondCasino.items.DroppedDiamonds;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
+
+import static net.pullolo.diamondCasino.items.DroppedDiamonds.droppedDiamonds;
 
 public final class DiamondCasino extends JavaPlugin {
 
@@ -42,6 +46,7 @@ public final class DiamondCasino extends JavaPlugin {
 
         logInfo("Registering events...");
         getServer().getPluginManager().registerEvents(new DataEventsHandler(database), this);
+        getServer().getPluginManager().registerEvents(new PlayerEventsHandler(!getConfig().getBoolean("drop-diamonds-on-death")), this);
         logInfo("Events registered!");
 
         logInfo("Registering commands...");
@@ -52,9 +57,16 @@ public final class DiamondCasino extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        unloadDrops();
         savePlayers(database);
         database.disconnect();
         disableGuis();
+    }
+
+    private void unloadDrops(){
+        for (DroppedDiamonds diamonds : droppedDiamonds){
+            diamonds.remove();
+        }
     }
 
     private void checkDb(Database db){

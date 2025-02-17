@@ -17,6 +17,7 @@ public class PlayerData {
     public static PlayerData getPlayerData(Player p){
         return playerData.get(p);
     }
+    public static boolean containsPlayer(Player p) {return playerData.containsKey(p);}
     public static void setPlayerDataFromDb(Player p, Database db){
         playerData.put(p, db.getPlayerData(p));
     }
