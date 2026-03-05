@@ -135,13 +135,16 @@ public class BlackJack extends BaseUncloseableGui {
     private void hit(boolean player){
         PlayingCard card = deck.getLast();
         deck.removeLast();
-        if (card.getValue()==14 && getValue(player ? playersCards : dealersCards)+14>21){
-            card.setValue(1);
-        }
         if (player){
             playersCards.add(card);
         } else {
             dealersCards.add(card);
+        }
+
+        for (PlayingCard c : (player ? playersCards : dealersCards)){
+            if (c.getValue()==11 && getValue(player ? playersCards : dealersCards)>21){
+                c.setValue(1);
+            }
         }
     }
 
