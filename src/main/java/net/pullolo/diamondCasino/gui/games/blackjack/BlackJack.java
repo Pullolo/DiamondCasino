@@ -144,6 +144,7 @@ public class BlackJack extends BaseUncloseableGui {
         for (PlayingCard c : (player ? playersCards : dealersCards)){
             if (c.getValue()==11 && getValue(player ? playersCards : dealersCards)>21){
                 c.setValue(1);
+                if (getValue(player ? playersCards : dealersCards)<=21) break;
             }
         }
     }
